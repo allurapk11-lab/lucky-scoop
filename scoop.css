@@ -1,0 +1,227 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f7f3ff;
+}
+
+.product-page{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+    display:flex;
+    gap:60px;
+    align-items:center;
+}
+
+.left{
+    width:50%;
+}
+
+.left img{
+    width:100%;
+    border-radius:15px;
+}
+
+.right{
+    width:50%;
+}
+
+.right h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.right h2{
+    color:#f544c0;
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.right p{
+    font-size:18px;
+    line-height:30px;
+    color:#555;
+}
+
+
+.qty-label{
+    display:block;
+    margin-top:30px;
+    margin-bottom:10px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.quantity button{
+    width:45px;
+    height:45px;
+    border:none;
+    background:#f544c0;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+.quantity input{
+    width:70px;
+    height:45px;
+    text-align:center;
+    font-size:18px;
+}
+
+.cart-btn{
+    width:100%;
+    padding:18px;
+    margin-bottom:15px;
+    border:2px solid #f544c0;
+    background:white;
+    color:#f544c0;
+    font-size:20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.buy-btn{
+    width:100%;
+    padding:18px;
+    background:#f544c0;
+    color:white;
+    border:none;
+    font-size:20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+
+
+
+hr{
+    margin:30px 0;
+    border:1px solid #eee;
+}
+
+.features{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:18px;
+    color:#444;
+}
+
+
+
+
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding: 0 15px;
+}
+
+.faq-box.active .faq-answer {
+    max-height: 100px; 
+    padding: 10px 15px;
+}
+
+.faq-box.active .arrow {
+    transform: rotate(180deg);
+    display: inline-block;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+
+
+
+.product-page {
+    display: flex !important;
+    align-items: flex-start !important; 
+    padding-top: 20px !important;       
+}
+
+
+.product-page .left {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+
+.product-page .left img {
+    margin-top: 0 !important;
+    vertical-align: top !important;
+}
+
+
+
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(60px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.product-page .left {
+    opacity: 0;
+    animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.product-page .right {
+    opacity: 0;
+    animation: slideInRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards; 
+}
+
+
+.cart-btn, .buy-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease !important;
+}
+
+.cart-btn:hover, .buy-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}

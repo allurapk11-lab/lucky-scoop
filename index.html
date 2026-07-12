@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lucky Scoopy</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#fff;
+color:#050505;
+}
+
+header{
+height:80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 40px;
+}
+
+.logo{
+text-align:center;
+}
+
+.logo h3{
+font-size:20px;
+font-weight:400;
+}
+
+.logo h1{
+font-size:55px;
+font-family:Georgia,serif;
+letter-spacing:5px;
+}
+
+.menu i,
+.search i{
+font-size:28px;
+cursor:pointer;
+}
+
+.hero{
+height:600px;
+background:url("hero.jpg") center center/cover no-repeat;
+display:flex;
+align-items:center;
+padding-left:100px;
+}
+
+.hero h2{
+font-size:45px;
+font-family:cursive;
+}
+
+.hero h1{
+font-size:90px;
+font-family:Georgia,serif;
+margin:10px 0;
+}
+
+.hero p{
+font-size:24px;
+margin:20px 0;
+}
+
+button{
+background:#FADADD;
+color:#070606;
+padding:15px 35px;
+border:none;
+cursor:pointer;
+font-size:16px;
+transition:.3s;
+}
+
+button:hover{
+background:#FADADD;
+}
+
+.heading{
+background:#FADADD ;
+color:#fff;
+text-align:center;
+padding:25px;
+letter-spacing:3px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,320px);
+gap:25px;
+padding:45px;
+justify-content: center;
+}
+
+
+.category-card,
+.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card{
+background:#fff;
+border:1px solid #ddd;
+overflow:hidden;
+transition:.3s;
+border-radius:12px;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.card img{
+width:100%;
+height:220px;     
+object-fit:cover;
+}
+
+.content{
+padding:15px;      
+}
+
+.content h2{
+font-size:28px;    
+font-family:Georgia,serif;
+margin-bottom:10px;
+}
+
+.content p{
+margin-bottom:15px;
+font-size:15px;    
+}
+
+
+
+
+
+
+.features{
+background:#FADADD;
+color:#060505;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+padding:40px;
+text-align:center;
+}
+
+.features i{
+font-size:45px;
+margin-bottom:15px;
+}
+
+footer{
+background:#070707;
+color:#fff;
+text-align:center;
+padding:30px;
+font-size:28px;
+font-family:cursive;
+}
+
+
+
+.customers{
+padding:60px 40px;
+background:#fff;
+}
+
+.customers h2{
+font-size:42px;
+font-weight:bold;
+margin-bottom:35px;
+}
+
+.review-container{
+display:flex;
+gap:25px;
+overflow-x:auto;
+scroll-behavior:smooth;
+}
+
+.review-card{
+min-width:350px;
+background:#f8f8f8;
+padding:35px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.review-card:hover{
+transform:translateY(-8px);
+}
+
+.stars{
+font-size:24px;
+color:#f4b400;
+margin-bottom:15px;
+}
+
+.review-card h3{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.review-card p{
+font-size:18px;
+line-height:30px;
+color:#070606;
+}
+
+
+
+.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+.faq-section {
+  padding: 55px 26px;
+  background: #fff;
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 45px;
+}
+
+.faq-box {
+  margin-bottom: 24px;
+}
+
+.faq-question {
+  min-height: 88px;
+  background: #FADADD;
+  color: rgb(10, 10, 10);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 26px;
+  cursor: pointer;
+}
+
+.question-icon {
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgb(5, 4, 4);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.faq-question p {
+  flex: 1;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.arrow {
+  font-size: 28px;
+}
+
+.faq-answer {
+  display: none;
+  background: #f4f4f4;
+  color: #070707;
+  padding: 22px 28px;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.faq-box.active .faq-answer {
+  display: block;
+}
+
+
+
+.featured-collection {
+  background: #f3f3f3;
+  padding: 45px 0 70px;
+  overflow: hidden;
+}
+
+.featured-collection h2 {
+  font-size: 44px;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 35px 50px;
+}
+
+.collection-row {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 0 50px 18px;
+  scroll-snap-type: x mandatory;
+}
+
+.collection-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.collection-row::-webkit-scrollbar-thumb {
+  background: #FADADD;
+  border-radius: 20px;
+}
+
+.collection-card {
+  min-width: 300px;
+  max-width: 300px;
+  background: #FADADD;
+  border-radius: 6px;
+  overflow: hidden;
+  color: rgb(10, 9, 9);
+  scroll-snap-align: start;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.collection-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.collection-content {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 24px 16px 14px;
+}
+
+.collection-content h3 {
+  font-size: 23px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.collection-content p {
+  font-size: 20px;
+  line-height: 1.35;
+  margin-bottom: 18px;
+  color: #0c0c0c;
+}
+
+.collection-content span {
+  display: block;
+  font-size: 25px;
+  letter-spacing: 1px;
+  margin-bottom: auto;
+}
+
+.collection-content button {
+  height: 72px;
+  margin-top: 34px;
+  border: 2px solid rgba(251, 53, 172, 0.45);
+  border-radius: 8px;
+  background: transparent;
+  color: rgb(249, 113, 186);
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.collection-content button:hover {
+  background: #FADADD;
+}
+
+@media (max-width: 768px) {
+  .featured-collection h2 {
+    font-size: 34px;
+    margin-left: 24px;
+  }
+
+  .collection-row {
+    padding: 0 24px 18px;
+  }
+
+  .collection-card {
+    min-width: 275px;
+    max-width: 275px;
+  }
+
+  .collection-card img {
+    height: 260px;
+  }
+}
+
+.restocked-section {
+  background: #f3f3f3;
+  padding: 60px 70px;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.restocked-image {
+  width: 380px;
+  height: 380px;
+  background: #0e0e0e;
+  overflow: hidden;
+}
+
+.restocked-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.restocked-content h2 {
+  font-size: 34px;
+}
+
+.restocked-content p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.restocked-content strong {
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
+  .restocked-section {
+    grid-template-columns: 1fr;
+    padding: 55px 24px;
+    gap: 35px;
+  }
+
+  .restocked-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .restocked-content h2 {
+    font-size: 32px;
+  }
+
+  .restocked-content p {
+    font-size: 18px;
+  }
+}
+
+
+.footer {
+  background: #FADADD;
+  color: #050505;
+  padding: 70px 6% 25px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr;
+  gap: 70px;
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+.footer h3 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 25px;
+  color: rgb(9, 9, 9);
+}
+
+.footer p {
+  font-size: 21px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  color: #070707;
+}
+
+.email-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+.email-row a,
+.footer a {
+  color: #060606;
+  text-decoration: none;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 18px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 24px;
+}
+
+.footer li {
+  margin-bottom: 15px;
+}
+
+.footer li a {
+  font-size: 20px;
+}
+
+.footer input {
+  width: 100%;
+  max-width: 400px;
+  height: 70px;
+  border: 2px solid rgba(8, 8, 8, 0.35);
+  border-radius: 8px;
+  background: transparent;
+  color: rgb(7, 7, 7);
+  padding: 0 24px;
+  font-size: 24px;
+  outline: none;
+}
+
+.footer input::placeholder {
+  color: #060606;
+}
+
+.footer-bottom {
+  max-width: 1350px;
+  margin: 55px auto 0;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.selectors {
+  display: flex;
+  gap: 16px;
+}
+
+.selectors label {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.selectors button {
+  height: 64px;
+  padding: 0 28px;
+  border: 2px solid rgba(6, 5, 5, 0.35);
+  border-radius: 8px;
+  background: transparent;
+  color: rgb(13, 11, 11);
+  font-size: 18px;
+}
+
+.payment-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  justify-content: flex-end;
+}
+
+.payment-icons span {
+  min-width: 56px;
+  height: 34px;
+  padding: 0 8px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  background: white;
+  color: #fc0c98;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.footer-legal {
+  max-width: 1350px;
+  margin: 55px auto 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+}
+
+.footer-legal p {
+  font-size: 16px;
+}
+
+.footer-legal a {
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+.footer-legal h3 {
+  font-size: 24px;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-bottom,
+  .footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .selectors {
+    flex-direction: column;
+  }
+
+  .payment-icons {
+    justify-content: flex-start;
+  }
+}
+
+
+
+
+@keyframes slideDownFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+
+header .logo {
+    animation: slideDownFade 1.2s ease-out forwards;
+}
+
+
+.banner {
+    animation: slideDownFade 1.4s ease-out 0.2s forwards;
+    opacity: 0; 
+}
+
+
+
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+
+.collection-card {
+    opacity: 0; 
+    animation: slideUpFade 1.2s ease-out forwards;
+}
+
+.collection-card:nth-child(1) { animation-delay: 0.2s; }
+.collection-card:nth-child(2) { animation-delay: 0.4s; }
+.collection-card:nth-child(3) { animation-delay: 0.6s; }
+.collection-card:nth-child(4) { animation-delay: 0.8s; }
+
+
+.collection-card {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+}
+
+.collection-card:hover {
+    transform: translateY(-10px) scale(1.02) !important; 
+    box-shadow: 0 20px 35px #FADADD; 
+}
+
+
+.collection-content button {
+    transition: all 0.3s ease;
+}
+
+.collection-content button:hover {
+    background: white !important;
+    color: #FADADD !important; 
+    transform: scale(1.05);
+}
+
+
+
+
+@keyframes textSlideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(40px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+
+.restocked-content h2,
+.restocked-content p {
+    opacity: 0;
+    animation: textSlideLeft 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+
+.restocked-content h2 { animation-delay: 0.2s; }
+.restocked-content p:nth-of-type(1) { animation-delay: 0.5s; }
+.restocked-content p:nth-of-type(2) { animation-delay: 0.8s; }
+.restocked-content p:nth-of-type(3) { animation-delay: 1.1s; }
+
+
+.restocked-image {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    animation: textSlideLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+
+/* Gmail link ko dark/black karne ke liye */
+.email-row a {
+    color: #060505 !important;
+}
+
+/* Privacy policy, Refund policy aur baqi sabhi footer links ko dark karne ke liye */
+.footer a, 
+.footer-legal a,
+.footer li a {
+    color: #060505 !important;
+    text-decoration: underline; /* Is se links ke niche line bhi aa jayegi */
+}
+
+/* Quick links ka text aur baqi normal text bhi agar white hy to usey dark karne ke liye */
+.footer p, 
+.footer-legal p,
+.selectors label {
+    color: #060505 !important;
+}
+
+/* Country aur Language wale buttons ke text ko black karne ke liye */
+.selectors button {
+    color: #060505 !important;
+    border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Yahan se HTML start hoga -->
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lucky Scoop</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+
+    <header>
+
+<div class="menu">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+<div class="logo">
+
+<h3>Lucky</h3>
+
+<h1>SCOOP</h1>
+
+</div>
+
+<div class="search">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+</header>
+
+
+
+<img src="banner.png" alt="Scoopy Scoop Banner" class="banner">
+
+
+
+
+
+<section class="featured-collection">
+  <h2>Featured collection</h2>
+
+  <div class="collection-row">
+    <div class="collection-card">
+     <a href="small.html">
+    <img src="small scoop.webp" alt="Summer Edition">
+</a>
+      <div class="collection-content">
+        <h3>1 small scoop</h3>
+        <p>Discover a cute surprise packed with trendy beauty and lifestyle goodies. Every Small Scoop is unique and filled with fun items you'll love. Perfect for gifting or treating yourself!</p>
+        <span>Rs 650</span>
+        <button>Add to cart</button>
+      </div>
+    </div>
+
+    <div class="collection-card">
+  <a href="large.html">
+    <img src="large scoop.webp" alt="Ladies Collection">
+  </a>
+  
+  <div class="collection-content">
+    <h3><a href="large-scoop.html" style="text-decoration: none; color: inherit;">1 large scoop</a></h3>
+    <p>Bigger box, bigger surprises! Enjoy a premium collection of beauty, skincare and cute accessories with even more exciting items inside every Large Scoop.</p>
+    <span>Rs 1,500</span>
+    
+    <a href="large.html" style="text-decoration: none;">
+      <button>Add to cart</button>
+    </a>
+  </div>
+</div>
+
+
+    <div class="collection-card">
+          <!-- 2 Small Scoop Card -->
+          <a href="2small.html" style="text-decoration: none; color: inherit;">
+            <img src="2 small scoop.png" alt="Girly Collection">
+            <div class="collection-content">
+              <h3>2 small scoop</h3>
+              <p>Double the surprises at a better price! Order two Small Scoops together and enjoy more exciting goodies with a special discount.</p>
+              <span>Rs 1,200</span>
+              <button>Add to cart</button>
+            </div>
+          </a>
+        </div>
+
+        <div class="collection-card">
+  <!-- 👇 Yahan humne naya naam bundle-scoop.html link mein set kar diya hy -->
+  <a href="bundle-scoop.html" style="text-decoration: none; color: inherit;">
+    <img src="small and large.webp" alt="Girly Collection">
+    <div class="collection-content">
+      <h3>1 small and 1 large scoop</h3>
+      <p>Share the fun or keep both for yourself! Get one Small and Large Scoops with extra surprises and enjoy our exclusive bundle discount.</p>
+      <span>Rs 2,000</span>
+      <button>Add to cart</button>
+    </div>
+  </a>
+</div>
+</section>
+
+
+
+<section class="restocked-section">
+  <div class="restocked-image">
+    <img src="logo2.webp" alt="Scoopy Scoop">
+  </div>
+
+  <div class="restocked-content">
+    <h2>RESTOCKED, DIG IN!</h2>
+
+    <p>
+      Weekly refreshed inventory and <strong>FREE GIFTS FOR EVERY ORDER!</strong>
+    </p>
+
+    <p>
+      <strong>FREE SHIPPING for orders min Rs 3,000.</strong>
+    </p>
+
+    <p>
+      Message us <strong>your age and preferences</strong>, so we can make your
+      Scoopy Scoop experience fabulous!
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<section class="customers">
+
+<h2>Our Happy Customers</h2>
+
+<div class="review-container">
+
+<div class="review-card">
+
+<div class="stars">
+★★★★★
+</div>
+
+<h3>Stylish and Practical.</h3>
+
+<p>
+The wallet is slim, stylish, and very comfortable to use daily.
+Doesn't feel bulky at all. Lucky Scoopy really knows modern design.
+</p>
+
+</div>
+
+<div class="review-card">
+
+<div class="stars">
+★★★★★
+</div>
+
+<h3>Excellent Quality.</h3>
+
+<p>
+I ordered bracelets and they arrived exactly as shown.
+Amazing quality and beautiful packaging.
+</p>
+
+</div>
+
+<div class="review-card">
+
+<div class="stars">
+★★★★★
+</div>
+
+<h3>Highly Recommended.</h3>
+
+<p>
+Fast delivery, premium products and great customer support.
+I'll definitely order again.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="faq-section">
+        <h2>FAQ'S</h2>
+
+        <!-- Question 1 -->
+        <div class="faq-box">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span class="question-icon">❓</span>
+                <p>Do you offer Cash On Delivery (COD)?</p>
+                <span class="arrow">v</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, we offer Cash On Delivery all over Pakistan.</p>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="faq-box">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span class="question-icon">❓</span>
+                <p>What is your return policy?</p>
+                <span class="arrow">v</span>
+            </div>
+            <div class="faq-answer">
+                <p>You can request a return within 7 days if the product is unused and in original condition.</p>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="faq-box">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span class="question-icon">❓</span>
+                <p>How can I contact you?</p>
+                <span class="arrow">v</span>
+            </div>
+            <div class="faq-answer">
+                <p>You can contact our support via Email at officialzoolife@gmail.com or through our social media handles.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+<section class="features">
+
+<div>
+
+<i class="fa-solid fa-award"></i>
+
+<h3>Premium Quality</h3>
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>Secure Payment</h3>
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-truck-fast"></i>
+
+<h3>Fast Delivery</h3>
+
+</div>
+
+<div>
+
+<i class="fa-regular fa-heart"></i>
+
+<h3>Customer Love</h3>
+
+</div>
+
+</section>
+
+
+
+<footer class="footer" id="contact-area"> 
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>About us</h3>
+      <p>
+        Small business, excited about every box we create.
+      </p>
+      <p>
+        We are open to restocking suggestions and preferences and glad to add
+        some gifts every time!
+      </p>
+
+      <div class="email-row">
+    <span>✉</span>
+    <a href="mailto:luckyscoop.shop11@gmail.com" style="color: white; text-decoration: none;">luckyscoop.shop11@gmail.com</a>
+</div>
+      
+
+      <div class="social-icons">
+        <span>f</span>
+        <span>◎</span>
+        <span>▶</span>
+        
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <p>Navigate our store easily and find what you’re looking for.</p>
+
+      <ul>
+        
+        <li><a href="#">Home</a></li>
+        <li><a href="#products-area">Catalog</a></li>
+        <li><a href="#contact-area">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Search</h3>
+      <p>Find what you need quickly with our search tool.</p>
+
+      <input type="text" placeholder="Search">
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="selectors">
+      <div>
+        <label>Country/region</label>
+        <button>Pakistan | Rs </button>
+      </div>
+
+      <div>
+        <label>Language</label>
+        <button>English</button>
+      </div>
+    </div>
+
+  
+
+  <div class="footer-legal">
+    <p>
+      ©2026, Debutify
+      <a href="privacy.html" style="color: white; text-decoration: underline; margin-right: 10px;">Privacy policy</a>
+      <a href="refund.html" style="color: white; text-decoration: underline; margin-right: 10px;">Refund policy</a>
+      <a href="terms.html" style="color: white; text-decoration: underline; margin-right: 10px;">Terms of service</a>
+      <a href="shipping.html" style="color: white; text-decoration: underline; margin-right: 10px;">Shipping policy</a>
+      
+    </p>
+
+    <h3>Follow-us on social media</h3>
+</div>
+</footer>
+
+
+
+<footer>
+
+Stay lucky, stay you. ♡
+
+</footer>
+
+</body>
+
+
+<script>
+function toggleFaq(element) {
+    // FAQ box ko select karna (jo question ka baap/parent hai)
+    const faqBox = element.parentElement;
+    
+    // Active class lagana ya hatana
+    faqBox.classList.toggle('active');
+}
+</script>
+
+
+<script>
+function toggleFaq(element) {
+    const faqBox = element.parentElement;
+    faqBox.classList.toggle('active');
+}
+
+// Naya perfect scroll animation javascript
+document.addEventListener("DOMContentLoaded", function () {
+    const elementsToAnimate = document.querySelectorAll('.collection-card, .restocked-image, .restocked-content h2, .restocked-content p');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in'); 
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        threshold: 0.40, // Jab 40% section screen par aa jaye tab chalega
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    elementsToAnimate.forEach(element => {
+        observer.observe(element);
+    });
+});
+</script>
+
+</html>

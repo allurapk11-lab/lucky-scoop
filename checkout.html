@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoopy Scoop - Checkout</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: #fcfcfc; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+        }
+        .checkout-container { 
+            display: flex; 
+            width: 100%; 
+            max-width: 1300px; 
+            min-height: 100vh; 
+        }
+        /* Left Side (Forms) */
+        .left-side { 
+            flex: 1.2; 
+            padding: 60px 80px; 
+            background: white; 
+            border-right: 1px solid #e1e1e1; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .logo { 
+            font-size: 26px; 
+            font-weight: bold; 
+            color: #111; 
+            margin-bottom: 40px;
+        }
+        .signin-box { 
+            width: 100%; 
+            max-width: 480px; 
+            margin: auto 0;
+        }
+        .signin-box h1 { 
+            font-size: 32px; 
+            margin-bottom: 8px; 
+            color: #111; 
+            font-weight: 600;
+        }
+        .signin-box p { 
+            color: #666; 
+            font-size: 15px;
+            margin-bottom: 30px; 
+        }
+        
+        /* Inputs styling */
+        .input-email, .input-field { 
+            width: 100%; 
+            padding: 14px; 
+            border: 1px solid #d9d9d9; 
+            border-radius: 8px; 
+            font-size: 15px; 
+            margin-bottom: 15px; 
+            box-sizing: border-box; 
+            background: #fff; 
+        }
+        .row-fields {
+            display: flex;
+            gap: 15px;
+        }
+        
+        /* Phone Input Wrapper */
+        .phone-wrapper {
+            display: flex;
+            align-items: center;
+            border: 1px solid #d9d9d9;
+            border-radius: 30px;
+            padding: 6px 16px;
+            margin-bottom: 20px;
+            background: #fff;
+        }
+        .country-code {
+            font-size: 16px;
+            font-weight: 500;
+            color: #111;
+            padding-right: 12px;
+            border-right: 1px solid #e1e1e1;
+            margin-right: 12px;
+        }
+        .input-phone {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .continue-btn { 
+            width: 100%; 
+            padding: 16px; 
+            background-color: #5a31f4; 
+            color: white; 
+            border: none; 
+            border-radius: 30px; 
+            font-size: 16px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: background 0.2s;
+        }
+        .continue-btn:hover { 
+            background-color: #431ed4; 
+        }
+
+        /* Payment Section Box */
+        .payment-box {
+            border: 1px solid #5a31f4;
+            background: #f9f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .terms-text {
+            font-size: 12px;
+            color: #737373;
+            margin-top: 35px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .back-link { 
+            margin-top: 25px; 
+            display: block; 
+            color: #666; 
+            text-decoration: none; 
+            font-size: 14px; 
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Right Side (Order Summary) */
+        .right-side { 
+            flex: 1; 
+            padding: 60px; 
+            background: #f5f5f5; 
+        }
+        .product-row { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 30px; 
+        }
+        .product-info { 
+            display: flex; 
+            align-items: center; 
+        }
+        .img-wrapper { 
+            position: relative; 
+            width: 64px; 
+            height: 64px; 
+            background: white; 
+            border: 1px solid #e1e1e1; 
+            border-radius: 8px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .img-wrapper img { 
+            width: 85%; 
+            height: 85%; 
+            object-fit: contain; 
+        }
+        .badge { 
+            position: absolute; 
+            top: -10px; 
+            right: -10px; 
+            background: #666; 
+            color: white; 
+            border-radius: 50%; 
+            width: 22px; 
+            height: 22px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 12px; 
+            font-weight: bold;
+        }
+        .product-name { 
+            margin-left: 15px; 
+            font-weight: 500; 
+            color: #333; 
+            font-size: 15px;
+        }
+        .discount-section { 
+            display: flex; 
+            margin: 25px 0; 
+            border-bottom: 1px solid #e1e1e1;
+            padding-bottom: 25px;
+        }
+        .discount-input { 
+            flex: 1; 
+            padding: 14px; 
+            border: 1px solid #d9d9d9; 
+            border-radius: 6px; 
+            font-size: 14px; 
+        }
+        .apply-btn { 
+            padding: 12px 20px; 
+            background: #e6e6e6; 
+            border: none; 
+            border-radius: 6px; 
+            margin-left: 10px; 
+            cursor: pointer; 
+            font-weight: 500; 
+            color: #737373; 
+        }
+        .price-line { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 14px; 
+            color: #555; 
+            font-size: 14px; 
+        }
+        .total-line { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-top: 25px; 
+            border-top: 1px solid #e1e1e1; 
+            padding-top: 25px; 
+            font-size: 22px; 
+            font-weight: bold; 
+            color: #111; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="checkout-container">
+    <div class="left-side">
+        <div class="logo">Scoopy Scoop</div>
+        
+        <div class="signin-box">
+          
+            <div id="step-email">
+                <h1>Sign in</h1>
+                <p>Or create an account</p>
+                <input type="email" id="emailInput" class="input-email" placeholder="Enter your email">
+                <button class="continue-btn" onclick="goToPhoneStep()">Continue with shop</button>
+                <a href="small.html" class="back-link">← Back to Store</a>
+            </div>
+
+            <div id="step-phone" style="display: none;">
+                <h1>What's your number?</h1>
+                <p>Used to secure your account</p>
+                <div class="phone-wrapper">
+                    <span class="country-code">PK +92</span>
+                    <input type="tel" id="phoneInput" class="input-phone" placeholder="Enter phone">
+                </div>
+              
+                <button class="continue-btn" onclick="goToAddressStep()">Continue</button>
+                <a class="back-link" onclick="goToEmailStep()">Back</a>
+            </div>
+
+           
+            <div id="step-address" style="display: none;">
+                <h1>Shipping Address</h1>
+                <p>Enter your delivery location details</p>
+                
+                <div class="row-fields">
+                    <input type="text" id="firstName" class="input-field" placeholder="First name">
+                    <input type="text" id="lastName" class="input-field" placeholder="Last name">
+                </div>
+                
+                <input type="text" id="addressField" class="input-field" placeholder="Address / House Number, Street">
+                <input type="text" id="apartmentField" class="input-field" placeholder="Apartment, suite, etc. (optional)">
+                
+                <div class="row-fields">
+                    <input type="text" id="cityField" class="input-field" placeholder="City">
+                    <input type="text" id="postalField" class="input-field" placeholder="Postal code (Optional)">
+                </div>
+
+                <h1>Payment</h1>
+                <div class="payment-box">
+                    <span>💵 Cash on Delivery (COD)</span>
+                    <span style="color: #5a31f4;">✔</span>
+                </div>
+                
+                <button class="continue-btn" style="background-color: #111;" onclick="completeOrder()">Complete Order</button>
+                <a class="back-link" onclick="goToPhoneStepBack()">Back</a>
+            </div>
+            
+            <div class="terms-text" id="termsBox">
+                By continuing, you agree to Shop's <a href="#">terms</a> and <a href="#">privacy policy</a>.
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="right-side">
+        <div class="product-row">
+            <div class="product-info">
+                <div class="img-wrapper">
+                    <img src="small scoop.png" alt="Product Image">
+                    <div class="badge" id="checkoutQty">1</div>
+                </div>
+                <span class="product-name">Small Mystery Scoop</span>
+            </div>
+            <span class="product-price">Rs.650</span>
+        </div>
+
+        <div class="discount-section">
+            <input type="text" class="discount-input" placeholder="Discount code">
+            <button class="apply-btn">Apply</button>
+        </div>
+
+        <div class="price-line">
+            <span>Subtotal</span>
+            <span id="subtotalPrice">Rs.650</span>
+        </div>
+        <div class="price-line">
+            <span>Shipping</span>
+            <span id="shippingPrice">Rs.250</span>
+        </div>
+        
+        <div class="total-line">
+            <span>Total</span>
+            <span><span style="font-size:12px; color:#737373; font-weight:normal; margin-right:5px;">PKR</span><span id="totalPrice">Rs.650</span></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const qty = parseInt(urlParams.get('qty')) || 1;
+    document.getElementById('checkoutQty').textContent = qty;
+    
+    let singlePrice = 650;
+    let shippingCost = 250; 
+    let subtotal = singlePrice * qty;
+    let finalTotal = subtotal + shippingCost;
+    
+    document.getElementById('subtotalPrice').textContent = "Rs." + subtotal;
+    document.getElementById('shippingPrice').textContent = "Rs." + shippingCost;
+    document.getElementById('totalPrice').textContent = "Rs." + finalTotal;
+
+    function goToPhoneStep() {
+        if(document.getElementById('emailInput').value.trim() === "") {
+            alert("Please enter your email!"); return;
+        }
+        document.getElementById('step-email').style.display = 'none';
+        document.getElementById('step-phone').style.display = 'block';
+    }
+
+    function goToEmailStep() {
+        document.getElementById('step-phone').style.display = 'none';
+        document.getElementById('step-email').style.display = 'block';
+    }
+
+    function goToAddressStep() {
+        if(document.getElementById('phoneInput').value.trim() === "") {
+            alert("Please enter your phone number!"); return;
+        }
+        document.getElementById('step-phone').style.display = 'none';
+        document.getElementById('step-address').style.display = 'block';
+        document.getElementById('termsBox').style.display = 'none';
+    }
+
+    function goToPhoneStepBack() {
+        document.getElementById('step-address').style.display = 'none';
+        document.getElementById('step-phone').style.display = 'block';
+        document.getElementById('termsBox').style.display = 'block';
+    }
+
+   function completeOrder() {
+        let emailVal = document.getElementById('emailInput').value;
+        let phoneVal = document.getElementById('phoneInput').value;
+        let fName = document.getElementById('firstName').value;
+        let lName = document.getElementById('lastName').value;
+        let address = document.getElementById('addressField').value;
+        let apartment = document.getElementById('apartmentField').value;
+        let city = document.getElementById('cityField').value;
+
+        if(fName.trim() === "" || address.trim() === "" || city.trim() === "") {
+            alert("Please fill Name, Address, and City fields!");
+            return;
+        }
+
+        const formId = 'xvzepzkw';
+        const formActionURL = `https://formspree.io/f/${formId}`;
+
+        let orderData = {
+            email: emailVal,
+            phone: phoneVal,
+            firstName: fName,
+            lastName: lName,
+            address: address,
+            apartment: apartment,
+            city: city,
+            quantity: qty
+        };
+
+        // ⚠️ Yahan main tabdeeli ki hai: scriptURL ko formActionURL se badla hai aur headers set kiye hain
+        fetch(formActionURL, {
+            method: 'POST',
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("🎉 Thank you " + fName + "! Your order has been placed via COD.");
+                window.location.href = "thankyou.html";
+            } else {
+                alert("Oops! There was a problem submitting your order.");
+            }
+        })
+        .catch(error => {
+            console.error('Error!', error);
+            alert("Something went wrong, please try again.");
+        });
+    }
+
+    </script>

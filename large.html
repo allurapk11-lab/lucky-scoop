@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 large scoop</title>
+
+    <link rel="stylesheet" href="scoop.css">
+</head>
+
+<body>
+
+<div class="product-page">
+
+    <div class="left">
+        <img src="large scoop.webp" alt="1 Large Scoop">
+    </div>
+
+    <div class="right">
+
+        <h1>large Mystery Scoop</h1>
+
+        <h2>Rs.1,500</h2>
+
+        <label class="qty-label">Quantity</label>
+
+        <div class="quantity">
+            <button>-</button>
+            <input type="number" value="1" min="1">
+            <button>+</button>
+        </div>
+
+ 
+        <button class="cart-btn" onclick="addToCartAction()">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNowAction()">Buy Now</button>
+
+        <hr>
+
+        <div class="features">
+            <div class="feature">
+                🚚 <span>Cash on Delivery Available</span>
+            </div>
+            <div class="feature">
+                🎁 <span>100% Surprise Mystery Box</span>
+            </div>
+            <div class="feature">
+                💜 <span>Every Scoop is Unique</span>
+            </div>
+            <div class="feature">
+                🔒 <span>Secure Checkout</span>
+            </div>
+        </div>
+
+        <p>
+           Discover the ultimate surprise with our Large Mystery Scoop!
+Packed with a premium selection of beauty, skincare, accessories, and cute lifestyle products, every box is carefully curated to bring you excitement and value.
+Perfect for gifting, self-care, birthdays, or treating yourself to something special.
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+    const quantityInput = document.querySelector('.quantity input[type="number"]');
+    const minusBtn = document.querySelector('.quantity button:first-of-type');
+    const plusBtn = document.querySelector('.quantity button:last-of-type');
+
+    if (quantityInput) {
+        plusBtn.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            let currentVal = parseInt(quantityInput.value) || 1;
+            quantityInput.value = currentVal + 1;
+        });
+
+        minusBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            let currentVal = parseInt(quantityInput.value) || 1;
+            if (currentVal > 1) {
+                quantityInput.value = currentVal - 1;
+            }
+        });
+    }
+
+    // 1. Yahan humne text "Large Mystery Scoop" kar diya hy 👇
+    function addToCartAction() {
+        let quantity = quantityInput ? quantityInput.value : 1;
+        alert("🛒 " + quantity + " x Large Mystery Scoop aapke cart mein add ho gaya hai!");
+    }
+
+    // 2. Yahan checkout par Large Scoop ka data aur price bhej rahe hain 👇
+    function buyNowAction() {
+        let quantity = quantityInput ? quantityInput.value : 1;
+        window.location.href = "checkout.html?name=1%20Large%20Scoop&price=1500&img=large%20scoop.png&qty=" + quantity;
+    }
+</script>
+
+</body>
+</html>

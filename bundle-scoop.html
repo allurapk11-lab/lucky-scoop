@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 Small & 1 Large Scoop - Lucky Scoopy</title>
+
+    <link rel="stylesheet" href="scoop.css">
+</head>
+
+<body>
+
+<div class="product-page">
+
+    <div class="left">
+        <img src="small and large.webp" alt="1 Small and 1 Large Scoop">
+    </div>
+
+    <div class="right">
+
+        <h1>1 Small & 1 Large Mystery Scoop</h1>
+
+        <h2>Rs.2,000</h2>
+
+        <label class="qty-label">Quantity</label>
+
+        <div class="quantity">
+            <button>-</button>
+            <input type="number" value="1" min="1">
+            <button>+</button>
+        </div>
+
+        <button class="cart-btn" onclick="addToCartAction()">Add to Cart</button>
+        <button class="buy-btn" onclick="buyNowAction()">Buy Now</button>
+
+        <hr>
+
+        <div class="features">
+            <div class="feature">
+                🚚 <span>Cash on Delivery Available</span>
+            </div>
+            <div class="feature">
+                🎁 <span>100% Surprise Mystery Box</span>
+            </div>
+            <div class="feature">
+                💜 <span>Every Scoop is Unique</span>
+            </div>
+            <div class="feature">
+                🔒 <span>Secure Checkout</span>
+            </div>
+        </div>
+
+        <p>
+            Share the fun or keep both for yourself! Get one Small and one Large Scoop bundle packed with an amazing mix of beauty, skincare, and cute accessories. This ultimate combo gives you the best of both worlds with extra surprises and our exclusive bundle discount!
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+    const quantityInput = document.querySelector('.quantity input[type="number"]');
+    const minusBtn = document.querySelector('.quantity button:first-of-type');
+    const plusBtn = document.querySelector('.quantity button:last-of-type');
+
+    if (quantityInput) {
+        plusBtn.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            let currentVal = parseInt(quantityInput.value) || 1;
+            quantityInput.value = currentVal + 1;
+        });
+
+        minusBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            let currentVal = parseInt(quantityInput.value) || 1;
+            if (currentVal > 1) {
+                quantityInput.value = currentVal - 1;
+            }
+        });
+    }
+
+    // Cart alert for Bundle
+    function addToCartAction() {
+        let quantity = quantityInput ? quantityInput.value : 1;
+        alert("🛒 " + quantity + " x 1 Small & 1 Large Scoop bundle aapke cart mein add ho gaya hai!");
+    }
+
+    // Checkout redirect link with correct bundle name and price (Rs.2000)
+    function buyNowAction() {
+        let quantity = quantityInput ? quantityInput.value : 1;
+        window.location.href = "checkout.html?name=1%20Small%20%26%201%20Large%20Scoop&price=2000&img=small%20and%20large.png&qty=" + quantity;
+    }
+</script>
+
+</body>
+</html>
